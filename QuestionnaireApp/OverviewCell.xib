@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="OverviewCell" id="gTV-IL-0wX" customClass="OverviewCell" customModule="QuestionnaireApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="595" height="212"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="595" height="212"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sCC-1n-gHK">
+                        <rect key="frame" x="0.0" y="0.0" width="595" height="212"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="IXI-RK-Hbx">
+                                <rect key="frame" x="8" y="8" width="579" height="196"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="dRB-A1-aFu" userLabel="Name">
+                                        <rect key="frame" x="0.0" y="0.0" width="579" height="52"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nOh-uX-z2o">
+                                                <rect key="frame" x="0.0" y="0.0" width="45" height="52"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UZL-v6-Hmc">
+                                                <rect key="frame" x="65" y="0.0" width="514" height="52"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="96" translatesAutoresizingMaskIntoConstraints="NO" id="BiN-bS-g6X" userLabel="Lake">
+                                        <rect key="frame" x="0.0" y="72" width="579" height="52"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lake" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7d1-wN-lho">
+                                                <rect key="frame" x="0.0" y="0.0" width="431" height="52"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RjF-vc-wlR" customClass="CheckBox" customModule="QuestionnaireApp" customModuleProvider="target">
+                                                <rect key="frame" x="527" y="0.0" width="52" height="52"/>
+                                                <color key="backgroundColor" red="0.90980392160000001" green="0.92549019610000005" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <gestureRecognizers/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="RjF-vc-wlR" secondAttribute="height" id="1sc-GU-4vC"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <viewLayoutGuide key="safeArea" id="7L5-Ki-YPR"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="96" translatesAutoresizingMaskIntoConstraints="NO" id="1EX-sM-Fdb" userLabel="Tackle Shop">
+                                        <rect key="frame" x="0.0" y="144" width="579" height="52"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tackle Shop" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBH-Kp-9cx">
+                                                <rect key="frame" x="0.0" y="0.0" width="431" height="52"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3m8-Mp-sCo" customClass="CheckBox" customModule="QuestionnaireApp" customModuleProvider="target">
+                                                <rect key="frame" x="527" y="0.0" width="52" height="52"/>
+                                                <color key="backgroundColor" red="0.90980392160000001" green="0.92549019610000005" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <gestureRecognizers/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="3m8-Mp-sCo" secondAttribute="height" id="3gO-gE-CRh"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <viewLayoutGuide key="safeArea" id="QMC-rW-ftF"/>
+                                    </stackView>
+                                </subviews>
+                                <viewLayoutGuide key="safeArea" id="nM0-AT-Jno"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.5720723271" blue="0.76827782389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="IXI-RK-Hbx" firstAttribute="top" secondItem="sCC-1n-gHK" secondAttribute="top" constant="8" id="9f2-Cg-qXX"/>
+                            <constraint firstAttribute="bottom" secondItem="IXI-RK-Hbx" secondAttribute="bottom" constant="8" id="BvG-Xx-bwA"/>
+                            <constraint firstAttribute="trailing" secondItem="IXI-RK-Hbx" secondAttribute="trailing" constant="8" id="PQ6-fb-r2v"/>
+                            <constraint firstItem="IXI-RK-Hbx" firstAttribute="leading" secondItem="sCC-1n-gHK" secondAttribute="leading" constant="8" id="zH7-uI-p07"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="sCC-1n-gHK" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="4dr-Gp-pzH"/>
+                <constraint firstItem="sCC-1n-gHK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="a9V-CD-Y0n"/>
+                <constraint firstAttribute="trailing" secondItem="sCC-1n-gHK" secondAttribute="trailing" id="gQg-hw-SJI"/>
+                <constraint firstAttribute="bottom" secondItem="sCC-1n-gHK" secondAttribute="bottom" id="kgP-SB-xrl"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="595" height="212"/>
+            <connections>
+                <outlet property="lakeCheckBox" destination="RjF-vc-wlR" id="1kq-8x-Hmg"/>
+                <outlet property="tackleShopCheckBox" destination="3m8-Mp-sCo" id="vDh-8v-cVD"/>
+            </connections>
+            <point key="canvasLocation" x="333.60000000000002" y="86.35682158920541"/>
+        </collectionViewCell>
+    </objects>
+</document>
