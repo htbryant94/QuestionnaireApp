@@ -5,10 +5,24 @@ struct QuestionnaireData {
   var overview: OverviewData?
   var address: Address?
   
+  func isValid() -> Bool {
+    guard let overview = overview,
+          let address = address else { return false }
+    
+    return overview.isValid() &&
+           address.isValid()
+  }
+  
   struct OverviewData {
     var name: String?
     var hasLake: Bool?
     var hasTackleShop: Bool?
+    
+    func isValid() -> Bool {
+      return name != nil &&
+          hasLake != nil &&
+    hasTackleShop != nil
+    }
   }
   
   struct Address {
@@ -53,17 +67,7 @@ class QuestionnaireViewController: UIViewController {
   }
   
   private func handleResponse(_ questionnaire: QuestionnaireData) {
-    guard let address = questionnaire.address else { return }
-    if address.isValid() {
-      guard questionnaire.overview?.hasLake != nil,
-        questionnaire.overview?.hasTackleShop != nil,
-        questionnaire.overview?.name != nil else {
-          presentAlert(success: false)
-          return
-      }
-      presentAlert(success: true)
-    }
-    presentAlert(success: false)
+    presentAlert(success: questionnaire.isValid())
   }
   
   private func presentAlert(success: Bool) {
@@ -112,25 +116,17 @@ extension QuestionnaireViewController: UICollectionViewDataSource {
 extension QuestionnaireViewController: UICollectionViewDelegate {
   
   private func configureOverviewCell(_ cell: OverviewCell) -> OverviewCell {
-    cell.hasLakeValueChanged = { [weak self] value in
-      print("lake is: \(value)")
-      self?.questionnaireData?.overview?.hasLake = value
-    }
-    cell.hasTackleShopValueChanged = { [weak self] value in
-      print("tackle shop is: \(value)")
-      self?.questionnaireData?.overview?.hasTackleShop = value
-    }
-    cell.nameChanged = { [weak self] value in
-      print("name changed: \(value!)")
-      self?.questionnaireData?.overview?.name = value
+    cell.dataListener = { [weak self] overview in
+      print("Overview Data Changed!")
+      self?.questionnaireData?.overview = overview
     }
     return cell
   }
   
   private func configureAddressCell(_ cell: AddressCell) -> AddressCell {
-    cell.addressDataListener = { [weak self] value in
+    cell.addressDataListener = { [weak self] address in
       print("Address Data Changed!")
-      self?.questionnaireData?.address = value
+      self?.questionnaireData?.address = address
     }
     return cell
   }

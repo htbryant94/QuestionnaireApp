@@ -8,19 +8,22 @@ class OverviewCell: UICollectionViewCell, UITextFieldDelegate {
   
   var hasLake: Bool = false
   var hasTackleShop: Bool = false
-  var hasLakeValueChanged: ((Bool) -> Void)?
-  var hasTackleShopValueChanged: ((Bool) -> Void)?
-  var nameChanged: ((String?) -> Void)?
+  var dataListener: ((QuestionnaireData.OverviewData) -> Void)?
+  var data = QuestionnaireData.OverviewData()
   
   override func awakeFromNib() {
     super.awakeFromNib()
     
     lakeCheckBox.listener = { [weak self] value in
-      self?.hasLakeValueChanged?(value)
+      self?.data.hasLake = value
+      guard let data = self?.data else { return }
+      self?.dataListener?(data)
     }
     
     tackleShopCheckBox.listener = { [weak self] value in
-      self?.hasTackleShopValueChanged?(value)
+      self?.data.hasTackleShop = value
+      guard let data = self?.data else { return }
+      self?.dataListener?(data)
     }
     nameTextField.delegate = self
   }
@@ -30,7 +33,8 @@ class OverviewCell: UICollectionViewCell, UITextFieldDelegate {
   }
   
   func textFieldDidEndEditing(_ textField: UITextField) {
-    nameChanged?(textField.text)
+    data.name = textField.text
+    dataListener?(data)
   }
   
 }

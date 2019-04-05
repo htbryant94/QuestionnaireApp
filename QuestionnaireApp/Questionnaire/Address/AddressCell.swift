@@ -8,10 +8,6 @@ class AddressCell: UICollectionViewCell, UITextFieldDelegate {
   @IBOutlet weak var postCodeTextField: UITextField!
   
   var textFields: [UITextField]?
-  var streetTextChanged: ((String?) -> Void)?
-  var townTextChanged: ((String?) -> Void)?
-  var countyTextChanged: ((String?) -> Void)?
-  var postCodeTextChanged: ((String?) -> Void)?
   var addressDataListener: ((QuestionnaireData.Address) -> Void)?
   var addressData = QuestionnaireData.Address()
   
@@ -25,8 +21,6 @@ class AddressCell: UICollectionViewCell, UITextFieldDelegate {
     textFields?.forEach { textfield in
       textfield.delegate = self
     }
-    
-//    addressData = QuestionnaireData.Address()
   }
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -38,16 +32,12 @@ class AddressCell: UICollectionViewCell, UITextFieldDelegate {
   func textFieldDidEndEditing(_ textField: UITextField) {
     switch textField.tag {
     case 1:
-      streetTextChanged?(textField.text)
       addressData.street = textField.text
     case 2:
-      townTextChanged?(textField.text)
       addressData.town = textField.text
     case 3:
-      countyTextChanged?(textField.text)
       addressData.county = textField.text
     case 4:
-      postCodeTextChanged?(textField.text)
       addressData.postcode = textField.text
     default:
       break

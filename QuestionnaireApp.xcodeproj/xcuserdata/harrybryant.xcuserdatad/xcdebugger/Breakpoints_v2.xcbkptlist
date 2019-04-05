@@ -22,16 +22,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "QuestionnaireApp/Questionnaire/Address/AddressCell.swift"
-            timestampString = "576165378.788649"
+            filePath = "QuestionnaireApp/QuestionnaireViewController.swift"
+            timestampString = "576167452.513495"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "textFieldDidEndEditing(_:)"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "isValid()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
