@@ -1,5 +1,32 @@
 import UIKit
 
+struct QuestionnaireData {
+  
+  var overview: OverviewData?
+  var address: Address?
+  
+  struct OverviewData {
+    var name: String?
+    var hasLake: Bool?
+    var hasTackleShop: Bool?
+  }
+  
+  struct Address {
+    var street: String?
+    var town: String?
+    var county: String?
+    var postcode: String?
+    
+    func isValid() -> Bool {
+      return street != nil &&
+               town != nil &&
+             county != nil &&
+           postcode != nil
+    }
+  }
+  
+}
+
 class QuestionnaireViewController: UIViewController {
   
   @IBOutlet weak var collectionView: UICollectionView!
@@ -21,26 +48,22 @@ class QuestionnaireViewController: UIViewController {
   }
   
   private func emptyQuestionnaire() -> QuestionnaireData {
-    return QuestionnaireData(overview: OverviewData())
+    return QuestionnaireData(overview: QuestionnaireData.OverviewData(),
+                             address: QuestionnaireData.Address())
   }
   
-//  private func handleEmptyDataError(_ questionnaire: QuestionnaireData) {
-//    guard questionnaire.overview?.hasLake != nil,
-//          questionnaire.overview?.hasTackleShop != nil,
-//          questionnaire.overview?.name != nil else {
-//      presentAlert(success: false)
-//      return
-//    }
-//  }
-  
   private func handleResponse(_ questionnaire: QuestionnaireData) {
-    guard questionnaire.overview?.hasLake != nil,
-          questionnaire.overview?.hasTackleShop != nil,
-          questionnaire.overview?.name != nil else {
-      presentAlert(success: false)
-      return
+    guard let address = questionnaire.address else { return }
+    if address.isValid() {
+      guard questionnaire.overview?.hasLake != nil,
+        questionnaire.overview?.hasTackleShop != nil,
+        questionnaire.overview?.name != nil else {
+          presentAlert(success: false)
+          return
+      }
+      presentAlert(success: true)
     }
-    presentAlert(success: true)
+    presentAlert(success: false)
   }
   
   private func presentAlert(success: Bool) {
@@ -56,16 +79,6 @@ class QuestionnaireViewController: UIViewController {
     present(alert, animated: true, completion: nil)
   }
   
-}
-
-struct QuestionnaireData {
-  var overview: OverviewData?
-}
-
-struct OverviewData {
-  var name: String?
-  var hasLake: Bool?
-  var hasTackleShop: Bool?
 }
 
 // MARK: UICollectionViewDataSource
@@ -86,7 +99,9 @@ extension QuestionnaireViewController: UICollectionViewDataSource {
         cell = configureOverviewCell(overviewCell)
       }
     } else if indexPath.section == 1 {
-      cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AddressCell", for: indexPath) as! AddressCell
+      if let addressCell = collectionView.dequeueReusableCell(withReuseIdentifier: "AddressCell", for: indexPath) as? AddressCell {
+       cell = configureAddressCell(addressCell)
+      }
     }
     return cell
   }
@@ -111,6 +126,14 @@ extension QuestionnaireViewController: UICollectionViewDelegate {
     }
     return cell
   }
+  
+  private func configureAddressCell(_ cell: AddressCell) -> AddressCell {
+    cell.addressDataListener = { [weak self] value in
+      print("Address Data Changed!")
+      self?.questionnaireData?.address = value
+    }
+    return cell
+  }
 
 }
 
@@ -121,7 +144,7 @@ extension QuestionnaireViewController: UICollectionViewDelegateFlowLayout {
     if indexPath.section == 0 {
       return CGSize(width: collectionView.frame.width, height: 200)
     } else if indexPath.section == 1 {
-      return CGSize(width: collectionView.frame.width, height: 400)
+      return CGSize(width: collectionView.frame.width, height: 200)
     }
     return CGSize(width: collectionView.frame.width, height: 100)
   }

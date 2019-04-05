@@ -19,7 +19,6 @@
 		21B38CE72217042400F3FE2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21B38CE62217042400F3FE2E /* Assets.xcassets */; };
 		21B38CEA2217042400F3FE2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21B38CE82217042400F3FE2E /* LaunchScreen.storyboard */; };
 		21B38CF2221707BA00F3FE2E /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B38CF1221707BA00F3FE2E /* Venue.swift */; };
-		21B38CF62217137B00F3FE2E /* VenueInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B38CF52217137B00F3FE2E /* VenueInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +36,6 @@
 		21B38CE92217042400F3FE2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		21B38CEB2217042400F3FE2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21B38CF1221707BA00F3FE2E /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
-		21B38CF52217137B00F3FE2E /* VenueInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueInfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +49,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		217F45282247F8FB005025B4 /* Questionnaire */ = {
+			isa = PBXGroup;
+			children = (
+				217F452A2247F913005025B4 /* Overview */,
+				217F45292247F90D005025B4 /* Address */,
+			);
+			path = Questionnaire;
+			sourceTree = "<group>";
+		};
+		217F45292247F90D005025B4 /* Address */ = {
+			isa = PBXGroup;
+			children = (
+				21335110222044AA00195D62 /* AddressCell.swift */,
+				21335111222044AA00195D62 /* AddressCell.xib */,
+			);
+			path = Address;
+			sourceTree = "<group>";
+		};
+		217F452A2247F913005025B4 /* Overview */ = {
+			isa = PBXGroup;
+			children = (
+				2133510C222041AF00195D62 /* OverviewCell.swift */,
+				2133510D222041AF00195D62 /* OverviewCell.xib */,
+			);
+			path = Overview;
+			sourceTree = "<group>";
+		};
 		21B38CD32217042300F3FE2E = {
 			isa = PBXGroup;
 			children = (
@@ -70,15 +95,11 @@
 		21B38CDE2217042300F3FE2E /* QuestionnaireApp */ = {
 			isa = PBXGroup;
 			children = (
+				217F45282247F8FB005025B4 /* Questionnaire */,
 				21B38CDF2217042300F3FE2E /* AppDelegate.swift */,
 				21B38CE12217042300F3FE2E /* ViewController.swift */,
-				21B38CF52217137B00F3FE2E /* VenueInfoViewController.swift */,
 				21B38CF1221707BA00F3FE2E /* Venue.swift */,
 				2133510A22203EBD00195D62 /* QuestionnaireViewController.swift */,
-				21335110222044AA00195D62 /* AddressCell.swift */,
-				21335111222044AA00195D62 /* AddressCell.xib */,
-				2133510C222041AF00195D62 /* OverviewCell.swift */,
-				2133510D222041AF00195D62 /* OverviewCell.xib */,
 				21B38CE32217042300F3FE2E /* Main.storyboard */,
 				21A0601E2232C5C1008AE8A3 /* CheckBox.swift */,
 				21B38CE62217042400F3FE2E /* Assets.xcassets */,
@@ -166,7 +187,6 @@
 				21B38CE22217042300F3FE2E /* ViewController.swift in Sources */,
 				2133510B22203EBD00195D62 /* QuestionnaireViewController.swift in Sources */,
 				21B38CF2221707BA00F3FE2E /* Venue.swift in Sources */,
-				21B38CF62217137B00F3FE2E /* VenueInfoViewController.swift in Sources */,
 				21A0601F2232C5C1008AE8A3 /* CheckBox.swift in Sources */,
 				21B38CE02217042300F3FE2E /* AppDelegate.swift in Sources */,
 			);
