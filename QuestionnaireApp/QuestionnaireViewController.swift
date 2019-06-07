@@ -45,15 +45,23 @@ class QuestionnaireViewController: UIViewController {
   
   @IBOutlet weak var collectionView: UICollectionView!
   var questionnaireData: QuestionnaireData?
+  var cellControllers: [CollectionViewCellController] = [OverviewCellController(),
+                                                         AddressCellController()]
+  let cellControllerFactory = MyCellControllerFactory()
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+    cellControllerFactory.registerCells(for: collectionView)
+    //    registerCells()
+    questionnaireData = emptyQuestionnaire()
+  }
+  
+  private func registerCells() {
     collectionView.register(UINib(nibName: "OverviewCell", bundle: nil),
                             forCellWithReuseIdentifier: "OverviewCell")
     collectionView.register(UINib(nibName: "AddressCell", bundle: nil),
                             forCellWithReuseIdentifier: "AddressCell")
-    questionnaireData = emptyQuestionnaire()
   }
   
   @IBAction func doneButtonPressed(_ sender: Any) {
@@ -86,28 +94,45 @@ class QuestionnaireViewController: UIViewController {
 }
 
 // MARK: UICollectionViewDataSource
+//extension QuestionnaireViewController: UICollectionViewDataSource {
+//
+//  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section : Int) -> Int {
+//    return 1
+//  }
+//
+//  func numberOfSections(in collectionView: UICollectionView) -> Int {
+//    return 2
+//  }
+//
+//  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//    var cell: UICollectionViewCell!
+//    if indexPath.section == 0 {
+//      if let overviewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "OverviewCell", for: indexPath) as? OverviewCell {
+//        cell = configureOverviewCell(overviewCell)
+//      }
+//    } else if indexPath.section == 1 {
+//      if let addressCell = collectionView.dequeueReusableCell(withReuseIdentifier: "AddressCell", for: indexPath) as? AddressCell {
+//       cell = configureAddressCell(addressCell)
+//      }
+//    }
+//    return cell
+//  }
+//
+//}
+
+// MARK: UICollectionViewDataSource - CellController
 extension QuestionnaireViewController: UICollectionViewDataSource {
-  
+
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section : Int) -> Int {
+    return cellControllers.count
+  }
+
+  func numberOfSections(in collectionView: UICollectionView) -> Int {
     return 1
   }
-  
-  func numberOfSections(in collectionView: UICollectionView) -> Int {
-    return 2
-  }
-  
+
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    var cell: UICollectionViewCell!
-    if indexPath.section == 0 {
-      if let overviewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "OverviewCell", for: indexPath) as? OverviewCell {
-        cell = configureOverviewCell(overviewCell)
-      }
-    } else if indexPath.section == 1 {
-      if let addressCell = collectionView.dequeueReusableCell(withReuseIdentifier: "AddressCell", for: indexPath) as? AddressCell {
-       cell = configureAddressCell(addressCell)
-      }
-    }
-    return cell
+    return cellControllers[indexPath.row].cellFromCollectionView(collectionView, forIndexPath: indexPath)
   }
 
 }

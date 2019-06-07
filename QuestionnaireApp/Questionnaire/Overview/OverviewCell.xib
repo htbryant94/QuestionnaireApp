@@ -109,7 +109,7 @@
                 <outlet property="nameTextField" destination="UZL-v6-Hmc" id="xOw-am-qQf"/>
                 <outlet property="tackleShopCheckBox" destination="3m8-Mp-sCo" id="vDh-8v-cVD"/>
             </connections>
-            <point key="canvasLocation" x="333.60000000000002" y="86.35682158920541"/>
+            <point key="canvasLocation" x="-73" y="82"/>
         </collectionViewCell>
     </objects>
 </document>

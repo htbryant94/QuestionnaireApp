@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		212A28D822AA9EE000CA183B /* CommandPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212A28D722AA9EE000CA183B /* CommandPattern.swift */; };
+		212A28DA22AAA0D000CA183B /* CellControllerPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212A28D922AAA0D000CA183B /* CellControllerPattern.swift */; };
 		2133510B22203EBD00195D62 /* QuestionnaireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2133510A22203EBD00195D62 /* QuestionnaireViewController.swift */; };
 		2133510E222041AF00195D62 /* OverviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2133510C222041AF00195D62 /* OverviewCell.swift */; };
 		2133510F222041AF00195D62 /* OverviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2133510D222041AF00195D62 /* OverviewCell.xib */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		212A28D722AA9EE000CA183B /* CommandPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandPattern.swift; sourceTree = "<group>"; };
+		212A28D922AAA0D000CA183B /* CellControllerPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellControllerPattern.swift; sourceTree = "<group>"; };
 		2133510A22203EBD00195D62 /* QuestionnaireViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionnaireViewController.swift; sourceTree = "<group>"; };
 		2133510C222041AF00195D62 /* OverviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewCell.swift; sourceTree = "<group>"; };
 		2133510D222041AF00195D62 /* OverviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OverviewCell.xib; sourceTree = "<group>"; };
@@ -100,6 +104,8 @@
 				21B38CE12217042300F3FE2E /* ViewController.swift */,
 				21B38CF1221707BA00F3FE2E /* Venue.swift */,
 				2133510A22203EBD00195D62 /* QuestionnaireViewController.swift */,
+				212A28D922AAA0D000CA183B /* CellControllerPattern.swift */,
+				212A28D722AA9EE000CA183B /* CommandPattern.swift */,
 				21B38CE32217042300F3FE2E /* Main.storyboard */,
 				21A0601E2232C5C1008AE8A3 /* CheckBox.swift */,
 				21B38CE62217042400F3FE2E /* Assets.xcassets */,
@@ -186,6 +192,8 @@
 				21335112222044AA00195D62 /* AddressCell.swift in Sources */,
 				21B38CE22217042300F3FE2E /* ViewController.swift in Sources */,
 				2133510B22203EBD00195D62 /* QuestionnaireViewController.swift in Sources */,
+				212A28D822AA9EE000CA183B /* CommandPattern.swift in Sources */,
+				212A28DA22AAA0D000CA183B /* CellControllerPattern.swift in Sources */,
 				21B38CF2221707BA00F3FE2E /* Venue.swift in Sources */,
 				21A0601F2232C5C1008AE8A3 /* CheckBox.swift in Sources */,
 				21B38CE02217042300F3FE2E /* AppDelegate.swift in Sources */,
